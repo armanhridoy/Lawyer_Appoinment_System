@@ -1,0 +1,46 @@
+﻿@model LawyerAppointmentSystem.Models.LawyerAvailability
+
+@{
+    ViewData["Title"] = "Availability Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h4 class="mb-0">📄 Availability Details</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Day</dt>
+                        <dd class="col-sm-8">@Model.Day</dd>
+
+                        <dt class="col-sm-4">Start Time</dt>
+                        <dd class="col-sm-8">
+                            @DateTime.Today.Add(Model.StartTime).ToString("hh:mm tt")
+                        </dd>
+
+                        <dt class="col-sm-4">End Time</dt>
+                        <dd class="col-sm-8">
+                            @DateTime.Today.Add(Model.EndTime).ToString("hh:mm tt")
+                        </dd>
+                    </dl>
+
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">⬅ Back</a>
+
+                    <a asp-action="CreateOrEdit"
+                       asp-route-id="@Model.Id"
+                       class="btn btn-primary">✏️ Edit</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

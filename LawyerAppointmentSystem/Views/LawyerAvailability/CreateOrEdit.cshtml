@@ -1,0 +1,80 @@
+﻿@model LawyerAppointmentSystem.Models.LawyerAvailability
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Add Availability" : "Edit Availability";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header bg-white">
+                    <h4>
+                        @(Model.Id == 0 ? "➕ Add Availability" : "✏️ Edit Availability")
+                    </h4>
+                </div>
+
+                <form asp-action="CreateOrEdit" method="post">
+
+                    <div class="card-body">
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Day Dropdown -->
+                        <div class="mb-3">
+                            <label class="form-label">Day</label>
+                            <select asp-for="Day"
+                                    class="form-select"
+                                    asp-items="Html.GetEnumSelectList<DayOfWeek>()">
+                            </select>
+                        </div>
+
+                        @*//Dropdown*@ 
+                    <div class="mb-3">
+                            <label asp-for="LawyerId" class="form-label fw-semibold">Select Lawyer</label>
+                            <select asp-for="LawyerId"
+                                    class="form-select"
+                                    asp-items="@(ViewBag.lawyerId)">
+                                <option value="">-- Select Lawyer --</option>
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div>
+
+                        <!-- Start Time -->
+                        <div class="mb-3">
+                            <label asp-for="StartTime" class="form-label"></label>
+                            <input asp-for="StartTime"
+                                   type="time"
+                                   class="form-control" />
+                        </div>
+
+                        <!-- End Time -->
+                        <div class="mb-3">
+                            <label asp-for="EndTime" class="form-label"></label>
+                            <input asp-for="EndTime"
+                                   type="time"
+                                   class="form-control" />
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer bg-white d-flex justify-content-between">
+
+                        <a asp-action="Index" class="btn btn-secondary">
+                            ⬅ Back
+                        </a>
+
+                        <button type="submit" class="btn btn-success">
+                            @(Model.Id == 0 ? "Save" : "Update")
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

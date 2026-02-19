@@ -1,0 +1,86 @@
+﻿@model LawyerAppointmentSystem.Models.Lawyer
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Lawyer" : "Edit Lawyer";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+                <div class="card-header bg-white">
+                    <h4 class="mb-0">
+                        @(Model.Id == 0 ? "➕ Create Lawyer" : "✏️ Edit Lawyer")
+                    </h4>
+                </div>
+
+                <form asp-action="CreateOrEdit" method="post">
+                    <div class="card-body">
+
+                        <!-- Hidden Id for Edit -->
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label"></label>
+                            <input asp-for="FullName" class="form-control"
+                                   placeholder="Enter lawyer full name" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <!-- Specialization -->
+                        <div class="mb-3">
+                            <label asp-for="Specialization" class="form-label"></label>
+                            <input asp-for="Specialization" class="form-control"
+                                   placeholder="Criminal, Civil, Family etc." />
+                            <span asp-validation-for="Specialization" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <!-- Experience -->
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ExperienceYear" class="form-label"></label>
+                                <input asp-for="ExperienceYear" type="number"
+                                       class="form-control" />
+                                <span asp-validation-for="ExperienceYear" class="text-danger"></span>
+                            </div>
+
+                            <!-- Consultation Fee -->
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ConsultationFee" class="form-label"></label>
+                                <input asp-for="ConsultationFee" type="number"
+                                       class="form-control" />
+                                <span asp-validation-for="ConsultationFee" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Is Active -->
+                        <div class="form-check mb-3">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <label asp-for="IsActive" class="form-check-label">
+                                Active Lawyer
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer bg-white d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            ⬅ Back
+                        </a>
+
+                        <button type="submit" class="btn btn-success">
+                            @(Model.Id == 0 ? "Save" : "Update")
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

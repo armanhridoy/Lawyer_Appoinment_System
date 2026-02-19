@@ -1,0 +1,83 @@
+﻿@model IEnumerable<LawyerAppointmentSystem.Models.LawyerAvailability>
+
+@{
+    ViewData["Title"] = "Lawyer Availability";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">🗓 Lawyer Availability</h4>
+
+        <a asp-action="CreateOrEdit" class="btn btn-success">
+            ➕ Add Availability
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Day</th>
+                        <th>Full Name</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th style="width: 220px;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        int sl = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@sl</td>
+                                <td>@item.Day</td>
+                                <td>@item.Lawyer?.FullName</td>
+                                <td>@item.StartTime</td>
+                                <td>@item.EndTime</td>
+                                <td>
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-info btn-sm">
+                                        Details
+                                    </a>
+
+                                    <a asp-action="CreateOrEdit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-primary btn-sm">
+                                        Edit
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Are you sure to delete?')">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            sl++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-muted">
+                                No availability found.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>

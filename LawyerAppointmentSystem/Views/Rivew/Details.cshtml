@@ -1,0 +1,42 @@
+﻿@model LawyerAppointmentSystem.Models.Review
+
+<div class="container mt-4">
+    <div class="card shadow border-0">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0">Review Details</h5>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="fw-bold">Rating</label>
+                <div>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (i <= Model.Rating)
+                        {
+                            <span class="text-warning fs-4">★</span>
+                        }
+                        else
+                        {
+                            <span class="text-secondary fs-4">☆</span>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="fw-bold">Comment</label>
+                <p class="form-control bg-light">@Model.Comment</p>
+            </div>
+
+            <div class="mb-3">
+                <label class="fw-bold">Created At</label>
+                <p>@Model.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</p>
+            </div>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>

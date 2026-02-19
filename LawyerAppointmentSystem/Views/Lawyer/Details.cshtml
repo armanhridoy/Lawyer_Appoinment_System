@@ -1,0 +1,59 @@
+﻿@model LawyerAppointmentSystem.Models.Lawyer
+
+@{
+    ViewData["Title"] = "Lawyer Details";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h4 class="mb-0">👨‍⚖️ Lawyer Details</h4>
+    </div>
+
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">Full Name</dt>
+            <dd class="col-sm-8">@Model.FullName</dd>
+
+            <dt class="col-sm-4">Specialization</dt>
+            <dd class="col-sm-8">@Model.Specialization</dd>
+
+            <dt class="col-sm-4">Experience</dt>
+            <dd class="col-sm-8">@Model.ExperienceYear Years</dd>
+
+            <dt class="col-sm-4">Consultation Fee</dt>
+            <dd class="col-sm-8">৳ @Model.ConsultationFee</dd>
+
+            <dt class="col-sm-4">Status</dt>
+            <dd class="col-sm-8">
+                @if (Model.IsActive)
+                {
+                    <span class="badge bg-success">Active</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">Inactive</span>
+                }
+            </dd>
+        </dl>
+    </div>
+
+
+    <div class="text-end">
+        <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-warning">
+            Edit
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+
+  @*   <div class="card-footer bg-white d-flex justify-content-between">
+        <a asp-action="Index" class="btn btn-secondary">⬅ Back</a>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                ✏️ Edit
+            </a>
+        </div>
+    </div> *@
+</div>

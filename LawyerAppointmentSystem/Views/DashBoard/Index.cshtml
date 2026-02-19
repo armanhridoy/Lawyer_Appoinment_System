@@ -1,0 +1,523 @@
+﻿
+
+
+
+<!-- Main Content -->
+ <div class="main-content">
+    <!-- Top Navbar -->
+    <nav class="top-navbar navbar navbar-expand">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lawyer Appointment System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="#">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+                            3
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item mx-3">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="theme-slider"></span>
+                    </label>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://via.placeholder.com/32" alt="Profile" class="profile-img me-2">
+                        Admin User
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container-fluid mt-4">
+        <h4 class="mb-4 fw-bold">Dashboard Overview</h4>
+        <!-- KPI Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-xl-3 col-md-6">
+                <div class="kpi-card d-flex align-items-center">
+                    <div class="icon me-3"><i class="bi bi-person-badge"></i></div>
+                    <div>
+                        <h6>Total Lawyers</h6>
+                        <h3 class="mb-0">56</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="kpi-card d-flex align-items-center" style="background: var(--kpi-gradient-2);">
+                    <div class="icon me-3"><i class="bi bi-people"></i></div>
+                    <div>
+                        <h6>Total Users</h6>
+                        <h3 class="mb-0">1,567</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="kpi-card d-flex align-items-center" style="background: var(--kpi-gradient-3);">
+                    <div class="icon me-3"><i class="bi bi-calendar-event"></i></div>
+                    <div>
+                        <h6>Total Appointments</h6>
+                        <h3 class="mb-0">789</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="kpi-card d-flex align-items-center" style="background: var(--kpi-gradient-4);">
+                    <div class="icon me-3"><i class="bi bi-currency-dollar"></i></div>
+                    <div>
+                        <h6>Total Revenue</h6>
+                        <h3 class="mb-0">$23,450</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Chart and Recent Appointments -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8">
+                <div class="chart-section">
+                    <h5 class="fw-semibold mb-3">Revenue Overview</h5>
+                    <div class="chart-placeholder">
+                        Placeholder for Revenue Chart (e.g., Chart.js)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recent-table card">
+                    <div class="card-body">
+                        <h5 class="fw-semibold mb-3">Recent Appointments</h5>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Lawyer</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Jane Smith</td>
+                                    <td><span class="status-badge badge-approved">Approved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Alice Johnson</td>
+                                    <td>Bob Brown</td>
+                                    <td><span class="status-badge badge-pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Davis</td>
+                                    <td>Sarah Lee</td>
+                                    <td><span class="status-badge badge-cancelled">Cancelled</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Emily White</td>
+                                    <td>David Green</td>
+                                    <td><span class="status-badge badge-approved">Approved</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lawyer Performance -->
+        <div class="performance-widget">
+            <h5 class="fw-semibold mb-3">Lawyer Performance</h5>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <div class="icon mb-2"><i class="bi bi-trophy"></i></div>
+                        <h6>Jane Smith</h6>
+                        <p class="text-muted mb-1">45 Appointments</p>
+                        <p class="text-muted mb-0">$4,500 Revenue</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <div class="icon mb-2"><i class="bi bi-trophy"></i></div>
+                        <h6>Bob Brown</h6>
+                        <p class="text-muted mb-1">38 Appointments</p>
+                        <p class="text-muted mb-0">$3,800 Revenue</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-3">
+                        <div class="icon mb-2"><i class="bi bi-trophy"></i></div>
+                        <h6>Sarah Lee</h6>
+                        <p class="text-muted mb-1">32 Appointments</p>
+                        <p class="text-muted mb-0">$3,200 Revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*     <!-- Main Content -->
+<main class="main">
+
+    <div class="top-bar">
+        <h1>Dashboard</h1>
+        <button class="theme-btn" id="themeToggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--primary)"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="card-title">Today's Appointments</div>
+            <div class="card-value">9</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +4 vs yesterday</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--success)"><i class="fa-solid fa-check-circle"></i></div>
+            <div class="card-title">Confirmed Cases</div>
+            <div class="card-value">52</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +9 this month</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--warning)"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="card-title">Pending Reviews</div>
+            <div class="card-value">11</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -3 this week</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--danger)"><i class="fa-solid fa-calendar-xmark"></i></div>
+            <div class="card-title">Cancelled</div>
+            <div class="card-value">6</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -2 this month</div>
+        </div>
+    </div>
+
+    <!-- Upcoming Appointments -->
+    <div class="appointments-card">
+        <div class="section-header">
+            <h2 class="section-title">Upcoming Appointments</h2>
+            <button class="btn-new">+ Schedule Appointment</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date & Time</th>
+                    <th>Lawyer</th>
+                    <th>Case Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahim Khan</td>
+                    <td>Today, 11:30 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Family Dispute</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Sarah Ahmed</td>
+                    <td>Today, 02:00 PM</td>
+                    <td>Adv. Imran Hossain</td>
+                    <td>Property Transfer</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Karim & Sons Ltd</td>
+                    <td>Tomorrow, 10:15 AM</td>
+                    <td>Adv. Sabrina Khan</td>
+                    <td>Commercial Contract</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Nadia Begum</td>
+                    <td>13 Feb, 04:30 PM</td>
+                    <td>Adv. Faisal Ahmed</td>
+                    <td>Divorce Consultation</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Md. Shahin Alam</td>
+                    <td>14 Feb, 09:45 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Criminal Defense</td>
+                    <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main> *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+<!-- Main Content -->
+<main class="main">
+
+    <div class="top-bar">
+        <h1>Dashboard</h1>
+        <button class="theme-btn" id="themeToggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--primary)"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="card-title">Today's Appointments</div>
+            <div class="card-value">9</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +4 vs yesterday</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--success)"><i class="fa-solid fa-check-circle"></i></div>
+            <div class="card-title">Confirmed Cases</div>
+            <div class="card-value">52</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +9 this month</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--warning)"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="card-title">Pending Reviews</div>
+            <div class="card-value">11</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -3 this week</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--danger)"><i class="fa-solid fa-calendar-xmark"></i></div>
+            <div class="card-title">Cancelled</div>
+            <div class="card-value">6</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -2 this month</div>
+        </div>
+    </div>
+
+    <!-- Upcoming Appointments -->
+    <div class="appointments-card">
+        <div class="section-header">
+            <h2 class="section-title">Upcoming Appointments</h2>
+            <button class="btn-new">+ Schedule Appointment</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date & Time</th>
+                    <th>Lawyer</th>
+                    <th>Case Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahim Khan</td>
+                    <td>Today, 11:30 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Family Dispute</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Sarah Ahmed</td>
+                    <td>Today, 02:00 PM</td>
+                    <td>Adv. Imran Hossain</td>
+                    <td>Property Transfer</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Karim & Sons Ltd</td>
+                    <td>Tomorrow, 10:15 AM</td>
+                    <td>Adv. Sabrina Khan</td>
+                    <td>Commercial Contract</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Nadia Begum</td>
+                    <td>13 Feb, 04:30 PM</td>
+                    <td>Adv. Faisal Ahmed</td>
+                    <td>Divorce Consultation</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Md. Shahin Alam</td>
+                    <td>14 Feb, 09:45 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Criminal Defense</td>
+                    <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main> 
+
+
+
+
+
+
+<!-- Main Content -->
+@* <main class="main">
+
+    <div class="top-bar">
+        <h1>Dashboard</h1>
+        <!-- No toggle button anymore - fixed light theme -->
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--primary)"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="card-title">Today's Appointments</div>
+            <div class="card-value">9</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +4 vs yesterday</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--success)"><i class="fa-solid fa-check-circle"></i></div>
+            <div class="card-title">Confirmed Cases</div>
+            <div class="card-value">52</div>
+            <div class="change positive"><i class="fa-solid fa-arrow-up"></i> +9 this month</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--warning)"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="card-title">Pending Reviews</div>
+            <div class="card-value">11</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -3 this week</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="card-icon" style="color:var(--danger)"><i class="fa-solid fa-calendar-xmark"></i></div>
+            <div class="card-title">Cancelled</div>
+            <div class="card-value">6</div>
+            <div class="change negative"><i class="fa-solid fa-arrow-down"></i> -2 this month</div>
+        </div>
+    </div>
+
+    <!-- Upcoming Appointments -->
+    <div class="appointments-card">
+        <div class="section-header">
+            <h2 class="section-title">Upcoming Appointments</h2>
+            <button class="btn-new">+ Schedule Appointment</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date & Time</th>
+                    <th>Lawyer</th>
+                    <th>Case Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahim Khan</td>
+                    <td>Today, 11:30 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Family Dispute</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Sarah Ahmed</td>
+                    <td>Today, 02:00 PM</td>
+                    <td>Adv. Imran Hossain</td>
+                    <td>Property Transfer</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Karim & Sons Ltd</td>
+                    <td>Tomorrow, 10:15 AM</td>
+                    <td>Adv. Sabrina Khan</td>
+                    <td>Commercial Contract</td>
+                    <td><span class="status-badge status-approved">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>Nadia Begum</td>
+                    <td>13 Feb, 04:30 PM</td>
+                    <td>Adv. Faisal Ahmed</td>
+                    <td>Divorce Consultation</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>Md. Shahin Alam</td>
+                    <td>14 Feb, 09:45 AM</td>
+                    <td>Adv. Ayesha Rahman</td>
+                    <td>Criminal Defense</td>
+                    <td><span class="status-badge status-cancelled">Cancelled</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main> *@

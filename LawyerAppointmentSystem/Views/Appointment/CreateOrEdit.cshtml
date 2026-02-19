@@ -1,0 +1,128 @@
+﻿@model LawyerAppointmentSystem.Models.Appointment
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Appointment" : "Edit Appointment";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h4 class="mb-0">
+                        @(Model.Id == 0 ? "📅 Create Appointment" : "✏️ Edit Appointment")
+                    </h4>
+                </div>
+
+                <div class="card-body">
+                    <form asp-action="CreateOrEdit" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Client -->
+                      @*   <div class="mb-3">
+                            <label class="form-label">Client</label>
+                            <select asp-for="UserId"
+                                    asp-items="ViewBag.Users"
+                                    class="form-select">
+                                <option value="">-- Select Client --</option>
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div> *@
+
+                        <!-- Lawyer -->
+                        @* <div class="mb-3">
+                            <label class="form-label">Lawyer</label>
+                            <select asp-for="LawyerId"
+                                    asp-items="ViewBag.Lawyers"
+                                    class="form-select">
+                                <option value="">-- Select Lawyer --</option>
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div>
+ *@
+
+                        @*//Dropdown*@ 
+                    @* <div class="mb-3">
+                            <label asp-for="LawyerId" class="form-label fw-semibold">Select Lawyer</label>
+                            <select asp-for="LawyerId"
+                                    class="form-select"
+                                    asp-items="@(ViewBag.lawyerId)">
+                                <option value="">-- Select Lawyer --</option>
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                    </div>
+
+                        <div class="mb-3">
+                            <label asp-for="UserId" class="form-label fw-semibold">Select ApplicationUser</label>
+                            <select asp-for="UserId"
+                                    class="form-select"
+                                    asp-items="@(ViewBag.userId)">
+                                <option value="">-- Select ApplicationUser --</option>
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div> *@
+
+
+
+
+
+
+
+                        <div class="mb-3">
+                            <label asp-for="LawyerId" class="form-label fw-semibold">Select Lawyer</label>
+                            <select asp-for="LawyerId"
+                                    class="form-select"
+                                    asp-items="@(ViewBag.LawyerId)">
+                                <option value="">-- Select Lawyer --</option>
+                            </select>
+                            <span asp-validation-for="LawyerId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="UserId" class="form-label fw-semibold">Select Application User</label>
+                            <select asp-for="UserId"
+                                    class="form-select"
+                                    asp-items="@(ViewBag.ApplicationUserId)">
+                                <option value="">-- Select User --</option>
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+
+
+                        <!-- Appointment Date -->
+                        <div class="mb-3">
+                            <label asp-for="AppointmentDate" class="form-label"></label>
+                            <input asp-for="AppointmentDate"
+                                   type="datetime-local"
+                                   class="form-control" />
+                            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                        </div>
+
+                        <!-- Problem Details -->
+                        <div class="mb-3">
+                            <label asp-for="ProblemDetails" class="form-label"></label>
+                            <textarea asp-for="ProblemDetails"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Describe the client's problem"></textarea>
+                            <span asp-validation-for="ProblemDetails" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                ← Back
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                @(Model.Id == 0 ? "Save Appointment" : "Update Appointment")
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

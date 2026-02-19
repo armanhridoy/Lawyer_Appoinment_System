@@ -1,0 +1,35 @@
+﻿@model LawyerAppointmentSystem.Models.Payment
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">📄 Payment Details</h5>
+                </div>
+
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Amount</dt>
+                        <dd class="col-sm-8">@Model.Amount</dd>
+
+                        <dt class="col-sm-4">Method</dt>
+                        <dd class="col-sm-8">@Model.PaymentMethod</dd>
+
+                        <dt class="col-sm-4">Date</dt>
+                        <dd class="col-sm-8">
+                            @Model.PaymentDate.ToString("dd MMM yyyy hh:mm tt")
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">Back</a>
+                    <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

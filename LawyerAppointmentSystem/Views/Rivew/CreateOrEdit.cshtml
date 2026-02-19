@@ -1,0 +1,51 @@
+﻿@model LawyerAppointmentSystem.Models.Review
+
+<div class="container mt-4">
+    <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+                @(Model.Id == 0 ? "Add Review" : "Edit Review")
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="CreateOrEdit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <select asp-for="Rating" class="form-select" required>
+                        <option value="">-- Select Rating --</option>
+                        <option value="1">⭐ 1</option>
+                        <option value="2">⭐⭐ 2</option>
+                        <option value="3">⭐⭐⭐ 3</option>
+                        <option value="4">⭐⭐⭐⭐ 4</option>
+                        <option value="5">⭐⭐⭐⭐⭐ 5</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LawyerId" class="form-label fw-semibold">Select Lawyer</label>
+                    <select asp-for="LawyerId"
+                            class="form-select"
+                            asp-items="@(ViewBag.lawyerId)">
+                        <option value="">-- Select Lawyer --</option>
+                    </select>
+                    <span asp-validation-for="LawyerId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Comment</label>
+                    <textarea asp-for="Comment" class="form-control"
+                              rows="4" placeholder="Write your feedback..." required>
+                    </textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        Back
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
