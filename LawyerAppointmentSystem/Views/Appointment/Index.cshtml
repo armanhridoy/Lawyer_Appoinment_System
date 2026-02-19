@@ -5,33 +5,34 @@
 }
 
 <div class="container mt-4">
+
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3>📅 Appointments</h3>
         <a asp-action="CreateOrEdit" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i> New Appointment
+            + New Appointment
         </a>
     </div>
 
     <div class="card shadow-sm">
         <div class="card-body">
 
-            @if (!Model.Any())
+            @if (Model == null || !Model.Any())
             {
-                <div class="text-center text-muted py-5">
+                <div class="text-center py-5 text-muted">
                     <h5>No appointments found</h5>
                     <p>Create a new appointment to get started.</p>
                 </div>
             }
             else
             {
-                <table class="table table-hover align-middle">
+                <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
+                            <th>User</th>
                             <th>Lawyer</th>
-                            <th>Appointment Date</th>
+                            <th>Date</th>
                             <th>Problem</th>
-                            <th>Id</th>
                             <th class="text-end">Actions</th>
                         </tr>
                     </thead>
@@ -44,44 +45,38 @@
                         {
                             <tr>
                                 <td>@count</td>
-                                <td>@item.User.FullName</td>
-                                <td>@item.Lawyer.FullName</td>
-                               @*  <td>
+
+                                <!-- User -->
+                                <td>
+                                    @(item.User != null ? item.User.FullName : "N/A")
+                                </td>
+
+                                <!-- Lawyer -->
+                                <td>
+                                    @(item.Lawyer != null ? item.Lawyer.FullName : "N/A")
+                                </td>
+
+                                <!-- Formatted Date -->
+                                <td>
                                     @item.AppointmentDate.ToString("dd MMM yyyy, hh:mm tt")
-                                </td> *@
-                                @* <td>
-                                    @(item.ProblemDetails?.Length > 30
-                                                                ? item.ProblemDetails.Substring(0, 30) + "..."
-                                                                : item.ProblemDetails)
-                        </td> *@
-                        <td>@item.AppointmentDate</td>
-                        <td>@item.ProblemDetails</td>
-                        <td class="text-end">
-                            <a asp-action="Details"
-                               asp-route-id="@item.Id"
-                               class="btn btn-sm btn-info me-1">
-                                Details
-                            </a>
+                                </td>
+
+                                <!-- Short Problem -->
+                                <td>
+                                    @(string.IsNullOrEmpty(item.ProblemDetails)
+                                        ? "N/A"
+                                        : (item.ProblemDetails.Length > 35
+                                            ? item.ProblemDetails.Substring(0, 35) + "..."
+                                            : item.ProblemDetails))
+                                </td>
+
+                                <!-- Actions -->
+                                <td class="text-end">
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-info">
+                                        Details
+                                    </a>
 
                                     <a asp-action="CreateOrEdit"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-warning me-1">
-                                        Edit
-                                    </a>
-
-                                    <a asp-action="Delete"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-danger"
-                                       onclick="return confirm('Are you sure you want to delete this appointment?');">
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
-                                        count++;
-                        }
-                    </tbody>
-                </table>
-            }
-        </div>
-    </div>
-</div>
+                                       as
